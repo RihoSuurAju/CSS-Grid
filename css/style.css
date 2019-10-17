@@ -10,7 +10,13 @@ body {
     border: 2px solid white;
     display: grid;
     gap:20px;
-    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    grid-template-columns: 1fr 500px 1fr;
+    grid-template-rows: 150px 150px 150px;
+    grid-template-areas: 
+        "sidebar-1 content sidebar-2"
+        "sidebar-1 content sidebar-2"
+        "footer footer footer";
 }
 
 .item {
@@ -20,10 +26,38 @@ body {
     font-weight: 700;
 }
 
-.item5 {
-   /* grid-column: span 2;
-    grid-row: span 6;
-   */
+/* .item5 {
+   grid-column: span 2;
+   grid-row: span 6;
+   
    grid-row: 1s / -1;
    grid-column: span 2;
+} */
+
+
+.footer {
+    grid-area: footer;
+}
+
+.item1 {
+    grid-area: sidebar-1;
+}
+
+.item2 {
+    grid-area: content;
+}
+
+.item3 {
+    grid-area: sidebar-2;
+}
+
+@media (max-width: 700px) {
+    
+    .container {
+        grid-template-areas: 
+        "content content content"
+        "sidebar-1 sidebar-1 sidebar-1"
+        "sidebar-2 sidebar-2 sidebar-2"
+        "footer footer footer";   
+    }
 }
